@@ -1,39 +1,42 @@
-import { useEffect, useState } from 'react'
-import React from "react";
+import React, {useState} from 'react'
 
-export default function List(){
-    const [count, setCount] = useState(0)
-
+export default function List() {
     const [list, setList] = useState(['Programming']);
 
-    const [newlist, setNewlist] = useState('')
+    const [newTask, setNewTask] = useState('')
 
-
-    const onChangeInput = (e)=>{
-        setNewlist(e.target.value);
+    const onChangeInput = (e) => {
+        setNewTask(e.target.value);
     }
 
-    const add2 =()=>{
-        setList([...list, newlist])
+    const add = () => {
+        setList([...list, newTask])
+        setNewTask('')
     }
-    return(
+
+    return (
         <div>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            to do list: {count}
-          </button>
-        </p>
+            <p>
+                to do list: {list.length}
+            </p>
             <div>
-                <input 
+                <input
                     type="text"
+                    value={newTask}
                     onChange={onChangeInput}
                 />
-                <input type="button" value="add" onClick={add2}/>
+                <input type="button" value="add" onClick={add}/>
             </div>
             <div>
-                <li>
-                    {newlist}
-                </li>
+                <ul>
+                    {
+                        list.map(item =>
+                            <li>
+                                {item}
+                            </li>
+                        )
+                    }
+                </ul>
             </div>
         </div>
     )
