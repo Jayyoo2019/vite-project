@@ -1,19 +1,12 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import Navbar from './components/Navbar'
-import List from './components/List'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <div>
-        <List/>
-        <Navbar/>
-      </div>
-
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Phillip + Vite + React!</p>
