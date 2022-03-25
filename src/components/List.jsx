@@ -7,6 +7,7 @@ export default function List() {
 
     const onChangeInput = (e) => {
         setNewTask(e.target.value);
+        console.log("what"+newTask)
     }
 
     const add = () => {
@@ -14,6 +15,9 @@ export default function List() {
         setNewTask('')
     }
 
+    const delete2 = () =>{
+        setList([...list, ''])
+    }
     return (
         <div>
             <p>
@@ -33,8 +37,11 @@ export default function List() {
                         list.map(item =>
                             <li>
                                 {item}
+                    <input type="button" value="delete" onClick={delete2}/>
                             </li>
+
                         )
+                        
                     }
                 </ul>
             </div>
