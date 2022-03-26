@@ -15,9 +15,15 @@ export default function List() {
         setNewTask('')
     }
 
-    const delete2 = () =>{
-        setList([...list, ''])
+    const delete2 = (id) =>{
+        console.log("delete누름"+delete2)
+        setList(list.filter((newTask) => newTask.id !== id))
+        setNewTask('')
+
     }
+
+
+    
     return (
         <div>
             <p>
@@ -35,9 +41,9 @@ export default function List() {
                 <ul>
                     {
                         list.map(item =>
-                            <li>
+                            <li key={item.id}>
                                 {item}
-                    <input type="button" value="delete" onClick={delete2}/>
+                    <input type="button" value="delete" onClick={()=>delete2(item.id)}/>
                             </li>
 
                         )
