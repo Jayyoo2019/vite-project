@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 export default function List() {
     const [list, setList] = useState(['Programming']);
@@ -7,7 +7,8 @@ export default function List() {
 
     const onChangeInput = (e) => {
         setNewTask(e.target.value);
-        console.log("what"+newTask)
+        console.log("what" + newTask)
+        console.log(newTask)
     }
 
     const add = () => {
@@ -15,15 +16,16 @@ export default function List() {
         setNewTask('')
     }
 
-    const delete2 = (id) =>{
-        console.log("delete누름"+delete2)
+    const delete2 = (id) => {
+        console.log("delete누름" + delete2)
+        console.log("id는무엇?"+item.id)
         setList(list.filter((newTask) => newTask.id !== id))
-        setNewTask('')
+        //setNewTask('')
 
     }
 
 
-    
+
     return (
         <div>
             <p>
@@ -34,20 +36,20 @@ export default function List() {
                     type="text"
                     value={newTask}
                     onChange={onChangeInput}
-                />
-                <input type="button" value="add" onClick={add}/>
+                />여기야
+                <input type="button" value="add" onClick={add} />
             </div>
             <div>
                 <ul>
                     {
                         list.map(item =>
                             <li key={item.id}>
-                                {item}
-                    <input type="button" value="delete" onClick={()=>delete2(item.id)}/>
+                                {item.id}여기가{item}
+                                <input type="button" value="delete" onClick={() => delete2(item.id)} />
                             </li>
 
                         )
-                        
+
                     }
                 </ul>
             </div>
