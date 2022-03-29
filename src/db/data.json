@@ -1,0 +1,37 @@
+{
+    "days" : [
+        {"id":1, "day":"day1"},
+        {"id":2, "day":"day2"},
+        {"id":3, "day":"day3"}
+    ],
+    "words" : [
+        {
+            "id":1,
+            "day":1,
+            "eng":"book",
+            "kor":"책",
+            "isDone": false
+        },
+        {
+            "id":1,
+            "day":1,
+            "eng":"apple",
+            "kor":"사과",
+            "isDone": false
+        },
+        {
+            "id":2,
+            "day":2,
+            "eng":"orange",
+            "kor":"오렌지",
+            "isDone": false
+        },
+        {
+            "id":2,
+            "day":3,
+            "eng":"pencil",
+            "kor":"연필",
+            "isDone": false
+        }
+    ]
+}

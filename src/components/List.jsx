@@ -17,9 +17,7 @@ export default function List() {
     }
 
     const delete2 = (id) => {
-        console.log("delete누름" + delete2)
-        console.log("id는무엇?"+item.id)
-        setList(list.filter((newTask) => newTask.id !== id))
+        setList(list.filter((newTask) => newTask[0] !== ''))
         //setNewTask('')
 
     }
@@ -36,7 +34,7 @@ export default function List() {
                     type="text"
                     value={newTask}
                     onChange={onChangeInput}
-                />여기야
+                />
                 <input type="button" value="add" onClick={add} />
             </div>
             <div>
@@ -44,7 +42,7 @@ export default function List() {
                     {
                         list.map(item =>
                             <li key={item.id}>
-                                {item.id}여기가{item}
+                                {item}
                                 <input type="button" value="delete" onClick={() => delete2(item.id)} />
                             </li>
 
@@ -53,6 +51,7 @@ export default function List() {
                     }
                 </ul>
             </div>
+            <hr></hr>
         </div>
     )
 }
