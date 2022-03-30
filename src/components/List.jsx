@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 
 export default function List() {
     const [list, setList] = useState(['Programming']);
@@ -7,22 +7,16 @@ export default function List() {
 
     const onChangeInput = (e) => {
         setNewTask(e.target.value);
-        console.log("what" + newTask)
-        console.log(newTask)
     }
 
-    const add = () => {
+    const addTask = () => {
         setList([...list, newTask])
         setNewTask('')
     }
 
-    const delete2 = (id) => {
-        setList(list.filter((newTask) => newTask[0] !== ''))
-        //setNewTask('')
-
+    const deleteTask = (id) => {
+        setList([...list.slice(0, id), ...list.slice(id + 1)])
     }
-
-
 
     return (
         <div>
@@ -35,23 +29,20 @@ export default function List() {
                     value={newTask}
                     onChange={onChangeInput}
                 />
-                <input type="button" value="add" onClick={add} />
+                <input type="button" value="add" onClick={addTask}/>
             </div>
             <div>
                 <ul>
                     {
-                        list.map(item =>
-                            <li key={item.id}>
+                        list.map((item, id) =>
+                            <li key={id}>
                                 {item}
-                                <input type="button" value="delete" onClick={() => delete2(item.id)} />
+                                <input type="button" value="delete" onClick={() => deleteTask(id)}/>
                             </li>
-
                         )
-
                     }
                 </ul>
             </div>
-            <hr></hr>
         </div>
     )
 }
