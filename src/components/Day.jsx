@@ -6,20 +6,20 @@ function Day() {
     const wordList = dummy.words.filter(word => (
         word.day === day
     ))
-  return (
-    <div>
-        <table>
-            <tbody>
-                {wordList.map(word=>(
+    return (
+        <div>
+            <table>
+                <tbody>
+                {wordList.map(word => (
                     <tr>
                         <td>{word.eng}</td>
                         <td>{word.kor}</td>
                     </tr>
                 ))}
-            </tbody>
-        </table>
-    </div>
-  )
+                </tbody>
+            </table>
+        </div>
+    )
 }
 
 export default Day
