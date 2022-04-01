@@ -10,7 +10,7 @@ export default function List() {
     }
 
     const addTask = () => {
-        if(newTask != 0){
+        if(newTask.trim() !== ""){
             console.log("else")
             setList([...list, newTask])
             setNewTask('')
