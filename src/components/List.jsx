@@ -10,11 +10,18 @@ export default function List() {
     }
 
     const addTask = () => {
-        setList([...list, newTask])
-        setNewTask('')
+        if(newTask != 0){
+            console.log("else")
+            setList([...list, newTask])
+            setNewTask('')
+        }else{
+            alert("should not be empty!")
+        }
     }
 
     const deleteTask = (id) => {
+        console.log(deleteTask)
+        console.log(list.slice(0,id))
         setList([...list.slice(0, id), ...list.slice(id + 1)])
     }
 
