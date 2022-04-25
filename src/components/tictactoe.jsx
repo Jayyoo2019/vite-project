@@ -3,21 +3,20 @@ import ReactDom from 'react-dom';
 import '../ttt.css'
 
 class Square extends React.Component {
-
-    // constructor(props){
-    //     super(props);
-    //     this.state = {
-    //         value:null,
-    //     };
-    // }
-
-
+ 
+    //  constructor(props){
+    //      super(props);
+    //      this.state = {
+    //          value:'123',
+    //      };
+    //  }
 
     render() {
       return (
         <button className="square"
         onClick={()=>{
-            console.log('click')
+            console.log(this.props.value)
+            //this.setState({value:"321"})
             this.props.onClick()
         }}>
           {/* TODO */}
@@ -33,15 +32,21 @@ class Square extends React.Component {
         super(props);
         this.state = {
             sqaures:Array(9).fill(null),
+            xIsNext : true,
         };
     }
 
-    handleClick(i) {
-        const squares = this.state.squares.slice();
-        squares[i] = 'X';
-        this.setState({squares: squares});
-      }
+ 
+    handleClick(i){
+      const sqaures2 = this.state.sqaures.slice();
+      sqaures2[i] = this.state.xIsNext ? 'X' : 'O';
+      this.setState({
+        sqaures: sqaures2,
+        xIsNext: !this.state.xIsNext,
+      });
+    }
       
+
     renderSquare(i) {
       return <Square value={this.state.sqaures[i]}
       onClick={()=>{
@@ -50,7 +55,7 @@ class Square extends React.Component {
     }
   
     render() {
-      const status = 'Next player: X';
+      const status = 'Next player: ' + (this.state.xIsNext ? 'x' : 'o');
   
       return (
         <div>

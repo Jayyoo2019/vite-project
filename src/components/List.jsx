@@ -49,6 +49,9 @@ export default function List() {
         <div>
             <Game/>
             <p>
+            https://victorydntmd.tistory.com/53
+            </p>
+            <p>
                 to do list: {list.length}
             </p>
             <div>
